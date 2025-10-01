@@ -1,0 +1,197 @@
+.echomind-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-top: 200px;
+}
+
+.echomind-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+}
+
+.echomind-description {
+    font-size: 20px;    
+    color: rgb(160, 160, 160);
+    margin-bottom: 20px;
+    width: 800px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+
+.drop-area {
+    position: relative;
+    height: 100px;
+    width: 500px;
+    border: 7px dashed gray;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.file-input {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.upload-span {
+    transform: translate(-50%, -50%);
+    color: var(--primary-gray);
+    font-size: 25px;
+    font-weight: 700;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.take-image, .analyse-skin {
+    width: fit-content;
+    padding: 15px 30px;
+    color: white;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: var(--primary-border-radius);
+    background-color: var(--primary-color);
+    transition: background-color var(--primary-transition), border var(--primary-transition);
+    outline: none;
+}
+
+.take-image {
+    background-color: white;
+    color: black;
+}
+
+.analyse-skin:hover {
+    background-color: var(--primary-hover);
+}
+
+.hide-take-image {
+    background-color: var(--primary-gray);
+    border: 2px solid var(--primary-gray);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.hide-take-image:hover {
+    background-color: var(--primary-gray);
+    border: 2px solid var(--primary-gray);
+}
+
+.selects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.echomind-btns-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.echomind-select {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px;
+    width: 200px;
+    border: none;
+    border-bottom: 3px solid var(--primary-dark-hover);
+    transition: border var(--primary-transition);
+    cursor: pointer;
+    background: none;
+    outline: none;
+}
+
+.echomind-select:hover {
+    border-bottom: 3px solid var(--primary-color);
+}
+
+option {
+    background-color: black;
+    color: var(--primary-color);
+}
+
+.result-container { 
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 800px;
+    margin-top: 30px;
+}
+
+.preview {
+    width: 300px;
+    margin-top: 30px;
+}
+
+.prediction-span, .confidence-span {
+    font-size: 30px;
+    font-weight: 700;
+    color: rgb(73, 240, 123);
+}
+
+.prediction-value, .confidence-value {
+    color: white;
+}
+
+@media only screen and (max-width: 800px) {
+    .echomind-section, .result-container {
+        width: 90%;
+    }
+
+    .echomind-description {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .drop-area {
+        width: 90%;
+    }
+
+    .selects-container {
+        gap: 5px;
+    }
+
+    .echomind-select {
+        width: 150px;
+        font-size: 15px;
+    }
+
+    .preview {
+        width: 100%;
+    }
+
+    .echomind-title {
+        font-size: 30px;
+    }
+
+    .echomind-description {
+        font-size: 18px;
+    }
+
+    .echomind-btns-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
