@@ -1,8 +1,8 @@
-const edit = document.querySelector('.edit');
+const upload = document.querySelector('.upload');
 const github = document.querySelector('.github');
 const demo = document.querySelector('.demo');
 
-edit.onclick = function() {
+upload.onclick = function() {
     section[1].scrollIntoView({behavior: 'smooth'});
 }
 

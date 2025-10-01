@@ -51,7 +51,7 @@
             <div class="header-text">
                 <span class="header-span">Edit Audio with<br>AI-Powered Sound Effects<br>using EchoMind</span>
                 <div class="home-buttons-container">
-                    <button class="home-buttons analyse">Upload Audio</button>
+                    <button class="home-buttons upload">Upload Audio</button>
                     <button class="home-buttons github">Github Repo</button>
                     <button class="home-buttons demo">See Demo</button>
                 </div>
@@ -103,9 +103,35 @@
                 <input class="file-input" type="file" accept="audio/mp3, audio/wav">
             </div>
             <div class="echoMind-btns-container">
-                <button class="take-image">Record Audio</button>
-                <button class="analyse-skin">Add Sound Effect</button>
+                <button class="record-audio">Record Audio</button>
             </div>
+            <div class="selects-container">
+                <select class="echomind-select basic-select">
+                    <option value="volume">Volume Gain / Reduction</option>
+                    <option value="fade-in">Fade In</option>
+                    <option value="fade-out">Fade Out</option>
+                    <option value="trim">Trim / Cut</option>
+                    <option value="speed">Speed / Tempo Change</option>
+                    <option value="pitch">Pitch Shift</option>
+                    <option value="reverse">Reverse</option>
+                </select>
+                <select class="echomind-select creative-select">
+                    <option value="echo">Echo / Delay</option>
+                    <option value="reverb">Reverb</option>
+                    <option value="distortion">Distortion</option>
+                    <option value="chorus">Chorus / Flanger</option>
+                    <option value="low-pass">Low-Pass Filter</option>
+                    <option value="high-pass">High-Pass Filter</option>
+                </select>
+                <select class="echomind-select enhancements-select">
+                    <option value="denoise">Background Noise Removal</option>
+                    <option value="eq-bass">Equalizer: Bass Boost</option>
+                    <option value="eq-vocal">Equalizer: Vocal Boost</option>
+                    <option value="compressor">Compressor</option>
+                    <option value="pan">Pan (Stereo Positioning)</option>
+                </select>
+            </div>
+            <input class="prompt-input" placeholder="Special sound effect? Explain it here..." type="text" max="250">
         </div>
         <audio class="preview" controls></audio>
         <div class="result-container">
