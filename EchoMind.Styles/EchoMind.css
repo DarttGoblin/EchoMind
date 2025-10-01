@@ -140,11 +140,32 @@ option {
     outline: none;
     border-radius: var(--primary-border-radius);
     color: white;
-    font-size: 23px;
+    font-size: 20px;
 }
 
 .prompt-input:focus {
     border: 2px solid var(--primary-color);
+}
+
+.submit {
+    width: fit-content;
+    padding: 10px 30px;
+    color: white;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: var(--primary-border-radius);
+    background-color: var(--primary-color);
+    transition: background-color var(--primary-transition), border var(--primary-transition);
+    border: 2px solid var(--primary-color);
+    outline: none;
+    margin-top: 20px;
+}
+
+.submit:hover {
+    background-color: var(--primary-hover);
+    border: 2px solid var(--primary-hover);
 }
 
 @media only screen and (max-width: 800px) {
