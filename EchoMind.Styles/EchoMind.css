@@ -58,9 +58,10 @@
 
 .record-audio {
     width: fit-content;
+    background: none;
     padding: 15px 30px;
-    background-color: white;
-    color: black;
+    color: white;
+    text-decoration: underline;
     font-weight: 700;
     border: none;
     cursor: pointer;
@@ -68,44 +69,7 @@
     border-radius: var(--primary-border-radius);
     transition: background-color var(--primary-transition), border var(--primary-transition);
     outline: none;
-}
-
-.selects-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-}
-
-.echomind-btns-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-}
-
-.echomind-select {
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 10px;
-    width: 250px;
-    border: none;
-    border-bottom: 3px solid var(--primary-dark-hover);
-    transition: border var(--primary-transition);
-    cursor: pointer;
-    background: none;
-    outline: none;
-}
-
-.echomind-select:hover {
-    border-bottom: 3px solid var(--primary-color);
-}
-
-option {
-    background-color: black;
-    color: var(--primary-color);
+    margin-top: -20px;
 }
 
 .result-container { 
@@ -120,6 +84,7 @@ option {
 .preview {
     width: 300px;
     margin-top: 30px;
+    display: none;
 }
 
 .prediction-span, .confidence-span {
@@ -135,10 +100,10 @@ option {
 .prompt-input {
     background: none;
     border: 2px solid var(--primary-dark-hover);
-    padding: 10px 10px;
+    padding: 15px 20px;
     width: 600px;
     outline: none;
-    border-radius: var(--primary-border-radius);
+    border-radius: 30px;
     color: white;
     font-size: 20px;
 }
@@ -156,16 +121,16 @@ option {
     cursor: pointer;
     font-size: 20px;
     border-radius: var(--primary-border-radius);
-    background-color: var(--primary-color);
+    background-color: var(--primary-hover);
     transition: background-color var(--primary-transition), border var(--primary-transition);
-    border: 2px solid var(--primary-color);
+    border: 2px solid var(--primary-hover);
     outline: none;
     margin-top: 20px;
 }
 
 .submit:hover {
-    background-color: var(--primary-hover);
-    border: 2px solid var(--primary-hover);
+    background-color: var(--primary-dark-hover);
+    border: 2px solid var(--primary-dark-hover);
 }
 
 @media only screen and (max-width: 800px) {
