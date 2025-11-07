@@ -133,6 +133,14 @@
     border: 2px solid var(--primary-dark-hover);
 }
 
+.note {
+    margin-top: 10px;
+    font-size: 15px;
+    width: 500px;
+    color: rgb(160, 160, 160);
+    text-decoration: underline;
+}
+
 @media only screen and (max-width: 800px) {
     .echomind-section, .result-container {
         width: 90%;
@@ -182,5 +190,10 @@
     .prompt-input {
         width: 90%;
         font-size: 18px;
+    }
+
+    .note {
+        font-size: 10px;
+        width: 80%;
     }
 }
