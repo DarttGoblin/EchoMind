@@ -32,9 +32,9 @@
 
 .drop-area {
     position: relative;
-    height: 100px;
-    width: 500px;
-    border: 7px dashed gray;
+    height: 80px;
+    width: 400px;
+    border: 4px dashed gray;
     border-radius: 30px;
     cursor: pointer;
 }
@@ -49,7 +49,7 @@
 .upload-span {
     transform: translate(-50%, -50%);
     color: var(--primary-gray);
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 700;
     position: absolute;
     left: 50%;
