@@ -141,6 +141,24 @@
     text-decoration: underline;
 }
 
+.sound-effect-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.sound-effect-icon {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.sound-effect-icon:hover {
+    transform: scale(1.1);
+}
+
 @media only screen and (max-width: 800px) {
     .echomind-section, .result-container {
         width: 90%;

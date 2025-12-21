@@ -18,3 +18,6 @@ Technologies
 HTML5
 CSS3
 Javascript
+Python
+
+Link: https://darttgoblin.github.io/EchoMind/EchoMind.html
