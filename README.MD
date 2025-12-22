@@ -1,5 +1,14 @@
 EchoMind
 
+🚨 HOW TO RUN INFERENCE 🚨
+
+1. Clone EchoMind interface repo
+2. Clone EchoMind backend server repo through this link: https://github.com/DarttGoblin/EchoMind_server
+3. Download the models from google drive though this link: 
+4. Install the dependencies using the following command: pip install flask flask-cors torch torchaudio soundfile transformers einops werkzeug tqdm descript-audio-codec
+5. Run app.py
+6. Test the chosen model on you audio
+
 Overview
 
 EchoMind's frontend provides an intuitive interface for editing audio with AI-generated sound effects. Users can input text prompts, preview generated sounds, and apply them to uploaded audio files in real-time.

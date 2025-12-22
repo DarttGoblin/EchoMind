@@ -1,37 +1,33 @@
-const fileInput = document.querySelector('.file-input');
-const promptInput = document.querySelector('.prompt-input');
+const file_input = document.querySelector('.file-input');
 const submit = document.querySelector('.submit');
-const uploadSpan = document.querySelector('.upload-span');
+const upload_span = document.querySelector('.upload-span');
+const preview_audio = document.querySelector('.preview');
 
-// File input change handler
-fileInput.addEventListener('change', () => {
-    const files = Array.from(fileInput.files);
+file_input.onchange = function() {
+    const files = Array.from(file_input.files);
+
     if (files.length === 0) {
-        uploadSpan.textContent = "UPLOAD AUDIO";
-    } else if (files.length === 1) {
-        uploadSpan.textContent = files[0].name;
-    } else {
-        uploadSpan.textContent = `${files.length} files selected`;
+        upload_span.textContent = "UPLOAD AUDIO";
+        preview_audio.src = "";
+        preview_audio.style.display = "none";
+        return;
     }
-});
 
-// Submit button click handler
+    upload_span.textContent = files.length === 1
+        ? files[0].name
+        : `${files.length} files selected`;
+
+    preview_audio.src = URL.createObjectURL(files[0]);
+    preview_audio.style.display = "block";
+};
+
 submit.onclick = function() {
-    const file = fileInput.files[0];
-    const prompt = promptInput.value.trim();
+    const file = file_input.files[0];
+    const prompt = prompt_input.value.trim();
 
-    // Validation
-    if (!file) {
-        alert("Please select an audio file.");
-        return;
-    }
+    if (!file) {alert("Please select an audio file."); return;}
+    if (!prompt) {alert("Please enter a prompt describing the effect."); return;}
 
-    if (!prompt) {
-        alert("Please enter a prompt describing the effect.");
-        return;
-    }
-
-    // Validate file type
     const allowedTypes = ['audio/wav', 'audio/mpeg', 'audio/mp3', 'audio/flac', 'audio/ogg', 'audio/x-m4a'];
     const allowedExtensions = ['.wav', '.mp3', '.flac', '.ogg', '.m4a'];
     const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
@@ -41,7 +37,6 @@ submit.onclick = function() {
         return;
     }
 
-    // Show loading state
     submit.disabled = true;
     const originalText = submit.textContent;
     submit.textContent = "Processing...";
@@ -51,7 +46,6 @@ submit.onclick = function() {
     formData.append('audio', file);
     formData.append('prompt', prompt);
 
-    // FIXED: Changed endpoint from 'process_audio' to 'process'
     fetch('http://127.0.0.1:5000/process', {
         method: 'POST',
         body: formData
@@ -60,40 +54,29 @@ submit.onclick = function() {
         if (!response.ok) {
             return response.json().then(err => {
                 throw new Error(err.error || "Network response was not ok");
-            }).catch(() => {
-                // If response is not JSON, throw generic error
-                throw new Error(`Server error: ${response.status} ${response.statusText}`);
-            });
+            }).catch(() => {throw new Error(`Server error: ${response.status} ${response.statusText}`);});
         }
         return response.blob();
     })
     .then(blob => {
-        // Create audio player element
         const audioURL = URL.createObjectURL(blob);
-        
-        // Remove any existing audio player and download button
         const existingPlayer = document.querySelector('.audio-player');
         const existingDownload = document.querySelector('.download-btn');
         if (existingPlayer) existingPlayer.remove();
         if (existingDownload) existingDownload.remove();
         
-        // Create new audio player
         const audioPlayer = document.createElement('audio');
         audioPlayer.src = audioURL;
         audioPlayer.controls = true;
         audioPlayer.className = "audio-player";
-        audioPlayer.style.cssText = "width: 100%; margin: 20px 0;";
+        audioPlayer.style.cssText = "width: 400px; margin: 20px 0;";
         
-        // Insert audio player after the submit button
         submit.parentElement.insertBefore(audioPlayer, submit.nextSibling);
-        
-        // Auto-play the result
         audioPlayer.play().catch(err => {
             console.log("Auto-play blocked by browser:", err);
             alert("Audio processed! Click play to listen.");
         });
-        
-        // Create download button
+
         const downloadBtn = document.createElement('a');
         downloadBtn.href = audioURL;
         downloadBtn.download = `processed_${file.name}`;
@@ -101,39 +84,32 @@ submit.onclick = function() {
         downloadBtn.className = "download-btn";
         downloadBtn.style.cssText = `
             display: inline-block;
-            margin: 10px 0;
-            padding: 10px 20px;
+            padding: 15px 30px;
             background: #4CAF50;
             color: white;
+            font-size: 20px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 15px;
             cursor: pointer;
         `;
         
-        // Insert download button after audio player
-        audioPlayer.parentElement.insertBefore(downloadBtn, audioPlayer.nextSibling);
-        
-        // Reset button
+        audioPlayer.parentElement.insertBefore(downloadBtn, audioPlayer.nextSibling);        
         submit.disabled = false;
         submit.textContent = originalText;
-        submit.style.opacity = "1";
-        
-        alert("✅ Audio processed successfully!");
+        submit.style.opacity = "1";        
     })
     .catch(error => {
         console.error("Error:", error);
         alert("❌ Error: " + error.message);
         
-        // Reset button
         submit.disabled = false;
         submit.textContent = originalText;
         submit.style.opacity = "1";
     });
 };
 
-// Optional: Add keyboard shortcut (Enter to submit)
-promptInput.addEventListener('keypress', (e) => {
+prompt_input.onkeypress = function(e) {
     if (e.key === 'Enter' && !submit.disabled) {
         submit.click();
     }
-});
+};
