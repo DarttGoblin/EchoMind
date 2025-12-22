@@ -100,7 +100,7 @@ submit.onclick = function() {
     })
     .catch(error => {
         console.error("Error:", error);
-        alert("❌ Error: " + error.message);
+        alert("The server is not hosted yet, you may want to follow instructions mentionned in the github repositroy or watch the demo instead.");
         
         submit.disabled = false;
         submit.textContent = originalText;
