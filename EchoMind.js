@@ -96,7 +96,7 @@ submit.onclick = function() {
         audioPlayer.parentElement.insertBefore(downloadBtn, audioPlayer.nextSibling);        
         submit.disabled = false;
         submit.textContent = originalText;
-        submit.style.opacity = "1";        
+        submit.style.opacity = "1";
     })
     .catch(error => {
         console.error("Error:", error);

@@ -12,7 +12,7 @@ github.onclick = function() {
 }
 
 report.onclick = function() {
-    window.open('https://drive.google.com/drive/folders/1WPyOK3dbeotJuEKLYy-1yqrXLM8CKBFO?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1tWntX9251ulYY8WYk3n-cKLE3q3GeswA/view?usp=sharing', '_blank');
 }
 
 demo.onclick = function() {
