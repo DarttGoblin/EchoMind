@@ -4,7 +4,7 @@ EchoMind
 
 1. Clone EchoMind interface repo
 2. Clone EchoMind backend server repo through this link: https://github.com/DarttGoblin/EchoMind_server
-3. Download the models from google drive though this link: 
+3. from Kaggle through this link: https://www.kaggle.com/models/yassinebazgour/echomind/
 4. Install the dependencies using the following command: pip install flask flask-cors torch torchaudio soundfile transformers einops werkzeug tqdm descript-audio-codec
 5. Run app.py
 6. Test the chosen model on you audio
